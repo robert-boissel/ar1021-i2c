@@ -1,0 +1,28 @@
+* Microship AR1020 Touchscreen Controller
+
+Required properties:
+- compatible: must be "microship,ar1020_ts"
+- reg: I2C address of the chip
+- interrupt-parent: the phandle for the interrupt controller
+- interrupts: touch controller interrupt
+- pinctrl-0: 
+
+
+Example:
+
+	i2c@00000000 {
+		/* ... */
+
+		ar1020_ts@4d {
+			compatible = "microship,ar1020_ts";
+			reg = <0x38>;
+			interrupt-parent = <&gpio3>;
+			interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
+
+			pinctrl-names = "default";
+			pinctrl-0 = <&pinctrl_ft5216_gpio>;
+	
+		};
+
+	};
+
